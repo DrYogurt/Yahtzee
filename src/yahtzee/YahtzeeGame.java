@@ -28,7 +28,15 @@ public class YahtzeeGame {
 	
 	public void turn() {
 		for (Player p : this.players) {
-			p.move(dice);
+			// Player p's move
+			
+			/*
+			TODO:
+				rolls dice for player,
+				outputs calculated options - System.out.println(p.getFormattedScore(dice));
+				asks player to choose score or hold/reroll dice
+				repeat until 2 rerolls or player chooses score
+			 */
 		}
 		turnCount++;
 	}
