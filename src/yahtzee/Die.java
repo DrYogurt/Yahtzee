@@ -25,7 +25,7 @@ public class Die {
 	}
 
 	public String toString() {
-		return "d"+this.sides+", Value: "+this.value;
+		return "Sides: "+this.sides+", Value: "+this.value;
 	}
 
 	public int getValue() {return this.value;}

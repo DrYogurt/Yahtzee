@@ -11,11 +11,6 @@ public class YahtzeeGame {
 	private int rerolls;
 	private int turnCount;
 
-	enum Field { // Note: You can get the string by doing Field.____.name();
-		ONES,TWOS,THREES,FOURS,FIVES,SIXES,
-		THREEOFKIND,FOUROFKIND,FULLHOUSE,SMALLSTRAIGHT,LARGESTRAIGHT,CHANCE,YAHTZEE
-	}
-
 	/***** Constructors *****/
 
 	// N/A
@@ -33,7 +28,7 @@ public class YahtzeeGame {
 	
 	public void turn() {
 		for (Player p : this.players) {
-			p.move();
+			p.move(dice);
 		}
 		turnCount++;
 	}
