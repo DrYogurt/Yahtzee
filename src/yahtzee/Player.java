@@ -20,6 +20,10 @@ public class Player {
 
 	/***** Methods *****/
 
+	public Die[] roll(Die[] dice) {
+		// TODO: will roll dice
+	}
+
 	// Getters
 	public String getName() {return this.name;}
 }

@@ -27,7 +27,6 @@ public class ScoreCard {
 		this.fields.put(field,s);
 	}
 	public void setField(String field,int s) {
-		this.setField(field, new Score(s));
-	}
+		this.setField(field,new Score(s));
 	
 }
