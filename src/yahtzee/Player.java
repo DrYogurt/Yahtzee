@@ -10,6 +10,7 @@ public class Player {
 	private String name;
 	private HashMap<String, Score> scoreCard;
 
+
 	/***** Constructors *****/
 
 	public Player(String name) {
