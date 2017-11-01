@@ -37,5 +37,12 @@ public enum DieFace {
    "| • • |\n" +
    "|_•_•_|\n"
     );
-    
+
+    private String aSCII;
+    DieFace(String s) {
+    	this.aSCII = s;
+    }
+    String getASCII() {
+    	return this.aSCII;
+    }
 }
