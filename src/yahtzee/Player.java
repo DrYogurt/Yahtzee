@@ -34,7 +34,19 @@ public class Player {
 
 	// Getters
 	public String getName() {return this.name;}
+	public HashMap<String,Score> getScore(Die[] dice) {
+		HashMap<String,Score> out = new HashMap<String,Score>();
+		for (ScoreField s : ScoreField.values()) {
+			out.put(s.name(),new Score(s.operate(dice)));			
+		}
+		return out;
+	}
 	public String getFormattedScore(Die[] dice) {
-		// TODO: take in rolled dice, outputs the correct 
+		String out="Section             Score\n";
+		HashMap<String,Score> in = this.getScore(dice);
+		for (String s : in.keySet()) {
+			out += String.format("%-20s%d\n",s,in.get(s));
+		}
+		return out;
 	}
 }

@@ -22,4 +22,9 @@ public class Score {
 	public int getPoints() {
 		return this.points;
 	}
+
+	@Override
+	public String toString() {
+		return ""+this.points;
+	}
 }

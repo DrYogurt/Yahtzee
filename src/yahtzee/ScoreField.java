@@ -1,4 +1,9 @@
+package yahtzee;
+
+import java.util.Arrays;
+
 enum ScoreField { // Note: You can get the string by doing Field.____.name();
+		// Upper Fields
 		ONES 			((Die[] dice) -> {
 			int sum=0;
 			for (Die d : dice) sum+=(d.getValue()==1)?(d.getValue()):(0);
@@ -29,8 +34,10 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 			for (Die d : dice) sum+=(d.getValue()==6)?(d.getValue()):(0);
 			return sum;
 		}),
-
+ 
+		// Lower Field
 		THREEOFKIND 	((Die[] dice) -> {
+			// TODO: for all of these, Arrays.sort(dice) then make it check them for legitimacy
 			int sum=0;
 			for (Die d : dice) sum+=d.getValue();
 			return sum;
