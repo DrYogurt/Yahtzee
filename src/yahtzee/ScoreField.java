@@ -138,13 +138,12 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 			this.op = op;
 		}
 
+		// Usage: ScoreField.ONES.operate(dice);
 		int operate(Die[] dice) {
 			return op.operate(dice);
 		}
 
-		// ScoreField.ONES.operate(dice);
-
-		// 
+		// Interface for lambdas
 		interface ScoreOperation {
 			int operate(Die[] dice);
 		}
