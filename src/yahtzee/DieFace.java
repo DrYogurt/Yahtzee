@@ -1,48 +1,62 @@
 package yahtzee;
 
 public enum DieFace {
-    ONES (
+    ONE             (1,
     "_ _ _\n" +
    "|     |\n" +
    "|  •  |\n" +
-   "|_ _ _|\n"
+   "|_ _ _|"
     ),
-    TWOS(
+    TWO             (2,
     "_ _ _\n" +
    "| •   |\n" +
    "|     |\n" +
-   "|_ _•_|\n"
+   "|_ _•_|"
     ), 
-    THREES(
+    THREE           (3,
     "_ _ _\n" +
    "| •   |\n" +
    "|  •  |\n" +
-   "|_ _•_|\n"
+   "|_ _•_|"
     ),
-    FOURS(
+    FOUR            (4,
     "_ _ _\n" +
    "| • • |\n" +
    "|     |\n" +
-   "|_•_•_|\n"
+   "|_•_•_|"
     ),
-    FIVES(
+    FIVE            (5,
     "_ _ _\n" +
    "| • • |\n" +
    "|  •  |\n" +
-   "|_•_•_|\n"
+   "|_•_•_|"
     ),
-    SIXES(
+    SIX             (6,
     "_ _ _\n" +
    "| • • |\n" +
    "| • • |\n" +
-   "|_•_•_|\n"
+   "|_•_•_|"
     );
 
-    private String aSCII;
-    DieFace(String s) {
-    	this.aSCII = s;
+    private String ascii;
+    private int num;
+    DieFace(int n,String s) {
+        this.num = n;
+    	this.ascii = s;
     }
-    String getASCII() {
-    	return this.aSCII;
+
+    @Override
+    String toString() {
+    	return this.ascii;
+    }
+
+    int getNum() {
+        return this.num;
+    }
+
+    static String getAscii(int n) {
+        for (DieFace d : DieFace.values()) {
+            if (d.getNum() == n) return d.toString();
+        }
     }
 }

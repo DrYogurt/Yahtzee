@@ -6,7 +6,9 @@ public class YahtzeeGame {
 
 	/***** Variables *****/
 
-	public static final int REROLLS = 3;
+	public static final int // Settings
+		REROLLS = 3,
+		DICENUM = 5;
 	private Player[] players;
 	private Die[] dice;
 	private int rerolls;
@@ -20,7 +22,10 @@ public class YahtzeeGame {
 
 	public void start(Player[] playrs) {
 		this.players = playrs;
-		this.turnCount=0;
+		this.turnCount = 0;
+
+		this.dice = new Die[YahtzeeGame.DICENUM];
+		for (int i=0;i<this.dice.length;i++) this.dice[i] = new Die();
 	}
 
 	public void start(Player... playrs) {
@@ -47,7 +52,7 @@ public class YahtzeeGame {
 				
 				// Rolling Dice
 				for (int i=1;i<=this.dice.length;i++) {
-					System.out.println(i+": "+this.dice[i-1].roll()/*+DieFace.getAscii(this.dice[i])*/);
+					System.out.println(i+": "+this.dice[i-1].roll()+"\n"+DieFace.getAscii(this.dice[i].getValue()));
 					this.dice[i-1].hold = false;
 				}
 
