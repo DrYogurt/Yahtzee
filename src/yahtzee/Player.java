@@ -33,6 +33,9 @@ public class Player {
 	}
 
 	// Getters
+	public Score getScore(String field) {
+		// TODO
+	}
 	public String getName() {return this.name;}
 	public HashMap<String,Score> getScore(Die[] dice) {
 		HashMap<String,Score> out = new HashMap<String,Score>();

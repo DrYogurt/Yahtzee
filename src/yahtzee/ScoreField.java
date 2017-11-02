@@ -59,7 +59,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 
 		// Class Info
 
-		ScoreOperation op;
+		private ScoreOperation op;
 		ScoreField(ScoreOperation op) {
 			this.op = op;
 		}
