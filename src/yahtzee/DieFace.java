@@ -45,8 +45,7 @@ public enum DieFace {
     	this.ascii = s;
     }
 
-    @Override
-    String toString() {
+    String getString() {
     	return this.ascii;
     }
 
@@ -58,5 +57,20 @@ public enum DieFace {
         for (DieFace d : DieFace.values()) {
             if (d.getNum() == n) return d.toString();
         }
+        return "";
+    }
+
+    static String getAscii(DieFace doi) {
+        for (DieFace d : DieFace.values()) {
+            if (d.name() == doi.name()) return d.toString();
+        }
+        return "";
+    }
+
+    static String getAscii(Die mhm) {
+        for (DieFace d : DieFace.values()) {
+            if (d.getNum() == mhm.getValue()) return d.toString();
+        }
+        return "";
     }
 }

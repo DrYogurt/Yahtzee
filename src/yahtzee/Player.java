@@ -34,7 +34,17 @@ public class Player {
 
 	// Getters
 	public Score getScore(String field) {
-		// TODO
+		return this.scoreCard.get(field);
+	}
+	public HashMap<String, Score> getScoreCard() {
+		return this.scoreCard;
+	}
+	public String getFormattedScoreCard() {
+		String out="Section             Score\n";
+
+		for (String s : this.scoreCard.keySet()) out += String.format("%-20s%d\n",s,in.get(s));
+
+		return out;
 	}
 	public String getName() {return this.name;}
 	public HashMap<String,Score> getScore(Die[] dice) {
@@ -47,9 +57,9 @@ public class Player {
 	public String getFormattedScore(Die[] dice) {
 		String out="Section             Score\n";
 		HashMap<String,Score> in = this.getScore(dice);
-		for (String s : in.keySet()) {
-			out += String.format("%-20s%d\n",s,in.get(s));
-		}
+
+		for (String s : in.keySet()) out += String.format("%-20s%d\n",s,in.get(s));
+
 		return out;
 	}
 }

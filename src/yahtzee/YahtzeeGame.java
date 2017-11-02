@@ -37,14 +37,6 @@ public class YahtzeeGame {
 			// Player p's move
 			System.out.println("Starting player "+p.getName()+"'s turn.");
 			
-			/*
-			TODO:
-				rolls dice for player,
-				outputs calculated options - System.out.println(p.getFormattedScore(dice));
-				asks player to choose score or hold/reroll dice
-				repeat until 2 rerolls or player chooses score
-			 */
-			
 			int rerolls = 0;String in;
 			System.out.println("Rolling dice...");
 			rer: do {
@@ -52,7 +44,7 @@ public class YahtzeeGame {
 				
 				// Rolling Dice
 				for (int i=1;i<=this.dice.length;i++) {
-					System.out.println(i+": "+this.dice[i-1].roll()+"\n"+DieFace.getAscii(this.dice[i].getValue()));
+					System.out.println(i+": "+this.dice[i-1].roll()+"\n"+DieFace.getAscii(this.dice[i]));
 					this.dice[i-1].hold = false;
 				}
 
@@ -84,6 +76,10 @@ public class YahtzeeGame {
 		}
 		
 		turnCount++;
+	}
+
+	public String getFormattedScores() {
+		// TODO: brainstorm on UI, find some way to display scorecard/s
 	}
 
 	// Getters
