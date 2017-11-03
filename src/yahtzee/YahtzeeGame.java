@@ -43,9 +43,9 @@ public class YahtzeeGame {
 				System.out.println("Your dice were: ");
 				
 				// Rolling Dice
-				for (int i=1;i<=this.dice.length;i++) {
-					System.out.println(i+": "+this.dice[i-1].roll()+"\n"+DieFace.getAscii(this.dice[i]));
-					this.dice[i-1].hold = false;
+				for (int i=0;i<this.dice.length;i++) {
+					System.out.println((i+1)+": "+this.dice[i].roll()+"\n"+DieFace.getAscii(this.dice[i]));
+					this.dice[i].hold = false;
 				}
 
 				// Player Options
