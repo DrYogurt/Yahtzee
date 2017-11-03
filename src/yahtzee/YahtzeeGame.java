@@ -79,7 +79,15 @@ public class YahtzeeGame {
 	}
 
 	public String getFormattedScores() {
-		// TODO: brainstorm on UI, find some way to display scorecard/s
+		for(ScoreFiled f : ScoreField.values()) {
+			for(Player p : this.players) {
+				
+			}
+		}
+
+		//Take in score cards
+		//Place into String
+		return "";
 	}
 
 	// Getters
