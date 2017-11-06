@@ -16,19 +16,21 @@ public class YahtzeeGame {
 
 	/***** Constructors *****/
 
-	// N/A
+	public YahtzeeGame() {
+		// Default Constructor
+	}
 
 	/***** Methods *****/
 
 	public void start(Player[] playrs) {
 		this.players = playrs;
-		this.turnCount = 0;
+		this.turnCount = 1;
 
 		this.dice = new Die[YahtzeeGame.DICENUM];
 		for (int i=0;i<this.dice.length;i++) this.dice[i] = new Die();
 	}
 
-	public void start(Player... playrs) {
+	public void startList(Player... playrs) {
 		this.start(playrs);
 	}
 	
@@ -50,7 +52,7 @@ public class YahtzeeGame {
 
 				// Player Options
 				System.out.println("Your options are:");
-				System.out.println(p.getFormattedScore(dice));
+				System.out.println(p.getFormattedScoreOf(dice));
 				System.out.println("You can choose to keep some dice when rerolling by typing out the dice numbers, separated by commas, or "+
 					"you can type in the name of a field (e.g. ONES) to choose that score");
 
@@ -63,7 +65,7 @@ public class YahtzeeGame {
 					}
 				}
 				// Checking through which to hold
-				for (char c : in.toCharArray()) {
+				for (char c : in.toCharArray()) { // <- may not be the best way to do it, costly function
 					if (Character.isDigit(c)) {
 						this.dice[Integer.parseInt(""+c)-1].hold = true;
 					}
@@ -78,11 +80,28 @@ public class YahtzeeGame {
 		turnCount++;
 	}
 
+	public void over() {
+		System.out.println("Game over! Here is the final scoreboard.");
+		System.out.println(this.getFormattedScores());
+		System.out.println("The winner was....... "+this.getWinner().getName());
+	}
+
 	public String getFormattedScores() {
 		// TODO: brainstorm on UI, find some way to display scorecard/s
+		return "";
+	}
+
+	public Player getWinner() {
+		Player highest = new Player(); // Throwaway player object
+		for (Player p : this.players) {
+			if (p.totalScore() > highest.totalScore()) highest = p;
+		}
+		return highest;
 	}
 
 	// Getters
+	public Player[] getPlayers() {return this.players;}
+	public Die[] getDice() {return this.dice;}
 	public int getTurn() {return this.turnCount;}
 	public int getPlayerNum() {return this.players.length;}
 	public int getDiceNum() {return this.dice.length;}

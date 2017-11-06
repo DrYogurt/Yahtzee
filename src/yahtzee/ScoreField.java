@@ -81,7 +81,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
     		&& dice[2].getValue() == dice[4].getValue())
     		||(dice[0].getValue() == dice[1].getValue()
     		&& dice[0].getValue() == dice[2].getValue()
-    		&& dice[3].getValue() == dice[4].getValue()) {
+    		&& dice[3].getValue() == dice[4].getValue())) {
     			return 25;
     		}
     		return 0;
@@ -98,7 +98,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 				}
 			}
 			for (int i = 1; i < dice.length; i++) {
-				if(!(dice[0] == (dice[i] - (i - 1))) {
+				if(!(dice[0] == (dice[i] - (i - 1)))) {
 					return 0;
 				}
 			}
@@ -111,7 +111,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
     	    	}
     		});
 			for (int i = 0; i < dice.length; i++) {
-				if(!(dice[0] == (dice[i] - (i - 1))) {
+				if(!(dice[0] == (dice[i] - (i - 1)))) {
 					return 0;
 				}
 			}
