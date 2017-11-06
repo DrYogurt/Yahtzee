@@ -93,7 +93,7 @@ public class YahtzeeGame {
 
 
 		// Actual table
-		for(ScoreFiled f : ScoreField.values()) {
+		for(ScoreField f : ScoreField.values()) {
 			out += "\n" + String.format("%-15s", f.toString());
 			for(Player p : this.players) {
 				out += String.format("%-10s", p.getScoreCard().get(f.name()));
