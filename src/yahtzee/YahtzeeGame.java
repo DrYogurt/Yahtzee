@@ -87,8 +87,22 @@ public class YahtzeeGame {
 	}
 
 	public String getFormattedScores() {
-		// TODO: brainstorm on UI, find some way to display scorecard/s
-		return "";
+		// Header
+		String out = String.format("%-15s", "Section");
+		for (Player p : this.players) out += String.format("%-10s",p.getName());
+
+
+		// Actual table
+		for(ScoreFiled f : ScoreField.values()) {
+			out += "\n" + String.format("%-15s", f.toString());
+			for(Player p : this.players) {
+				out += String.format("%-10s", p.getScoreCard().get(f.name()));
+			}
+		}
+
+		//Take in score cards
+		//Place into String
+		return out;
 	}
 
 	public Player getWinner() {
