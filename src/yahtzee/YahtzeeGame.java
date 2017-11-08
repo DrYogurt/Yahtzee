@@ -28,6 +28,8 @@ public class YahtzeeGame {
 
 		this.dice = new Die[YahtzeeGame.DICENUM];
 		for (int i=0;i<this.dice.length;i++) this.dice[i] = new Die();
+		
+		System.out.println("New game started!");
 	}
 
 	public void startList(Player... playrs) {
@@ -45,33 +47,37 @@ public class YahtzeeGame {
 				System.out.println("Your dice were: ");
 				
 				// Rolling Dice
-				for (int i=1;i<=this.dice.length;i++) {
-					System.out.println(i+": "+this.dice[i-1].roll()+"\n"+DieFace.getAscii(this.dice[i]));
-					this.dice[i-1].hold = false;
+				for (int i=0;i<this.dice.length;i++) {
+					System.out.println(this.dice[i].getValue());
+					if (!this.dice[i].hold) this.dice[i].roll();
+					System.out.println((i+1)+": "+this.dice[i]);
+					if (this.dice[i].hold) System.out.println("You held this dice's value of "+this.dice[i]);
+					//System.out.println(DieFace.getAscii(this.dice[i]));
+					this.dice[i].hold = false;
 				}
 
 				// Player Options
 				System.out.println("Your options are:");
 				System.out.println(p.getFormattedScoreOf(dice));
-				System.out.println("You can choose to keep some dice when rerolling by typing out the dice numbers, separated by commas, or "+
+				System.out.println("You can choose to keep some dice when rerolling by typing out the dice numbers, separated by commas, or\n"+
 					"you can type in the name of a field (e.g. ONES) to choose that score");
 
 				in = TextIO.getln();
+
 				// Checking for score field, break
 				for (ScoreField s : ScoreField.values()) {
 					if (in.toUpperCase().equals(s.name())) {
-						System.out.println("You chose to accept the score "+s.name()+", getting you "+s.operate(dice)+"points");
+						System.out.println("You chose to accept the score "+s.name()+", getting you "+s.operate(dice)+" points.");
 						break rer;
 					}
 				}
 				// Checking through which to hold
 				for (char c : in.toCharArray()) { // <- may not be the best way to do it, costly function
-					if (Character.isDigit(c)) {
-						this.dice[Integer.parseInt(""+c)-1].hold = true;
-					}
+					if (Character.isDigit(c)) this.dice[Integer.parseInt(""+c)-1].hold = true;
 				}
 
 				System.out.println("Rerolling dice...");
+				rerolls++;
 			} while (rerolls < YahtzeeGame.REROLLS);
 
 			System.out.print("Player "+p.getName()+"'s turn is over. ");

@@ -76,7 +76,7 @@ public class Player {
 		HashMap<String,Score> in = this.getScoreOf(dice);
 
 		for (String s : in.keySet())
-			out += String.format("%-20s%d\n",s,in.get(s));
+			out += String.format("%-20s%d\n",s,in.get(s).getPoints());
 
 		return out;
 	}

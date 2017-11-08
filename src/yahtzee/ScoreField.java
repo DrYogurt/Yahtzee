@@ -140,6 +140,8 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 
 		// Usage: ScoreField.ONES.operate(dice);
 		int operate(Die[] dice) {
+			Die[] dye = new Die[dice.length];
+			for (int i = 0; i < dice.length; i++) dye[i] = new Die(6, dice[i].getValue());
 			return op.operate(dice);
 		}
 

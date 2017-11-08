@@ -4,7 +4,7 @@ public class Die {
 	/***** Variables *****/
 
 	private int sides,value;
-	protected boolean hold;
+	public boolean hold;
 
 	/***** Constructors *****/
 
@@ -29,7 +29,7 @@ public class Die {
 
 	@Override
 	public String toString() {
-		return "Sides: "+this.sides+", Value: "+this.value;
+		return ""+this.value;
 	}
 
 	public int getValue() {return this.value;}
