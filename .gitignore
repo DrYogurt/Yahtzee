@@ -46,6 +46,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Java ignore Classes
+*.class
+
 # Sublimestuffs
 *.sublime-project
 *.sublime-workspace
