@@ -13,7 +13,7 @@ public class run {
 
 		// Gameplay
 
-		// While last person's scorecard isn't full - the syntax of dat conditional tho xD
+		// While last person's scorecard isn't full
 		while (!game.getPlayers()[game.getPlayerNum()-1].isFull()) {
 			System.out.println("Now beginning turn #"+game.getTurn());
 			game.turn();

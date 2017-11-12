@@ -111,7 +111,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
     	    	}
     		});
 			for (int i = 0; i < dice.length; i++) {
-				if(!(dice[0].getValue() == (dice[i].getValue() - (i - 1)))) {
+				if(dice[0].getValue() != (dice[i].getValue() - (i - 1))) {
 					return 0;
 				}
 			}
@@ -142,7 +142,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
 		int operate(Die[] dice) {
 			Die[] dye = new Die[dice.length];
 			for (int i = 0; i < dice.length; i++) dye[i] = new Die(6, dice[i].getValue());
-			return op.operate(dice);
+			return op.operate(dye);
 		}
 
 		// Interface for lambdas
