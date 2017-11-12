@@ -9,7 +9,14 @@ public class run {
 
 		// UI for beginning game.
 		// TODO take input of players, configure ot game.start()
-		game.startList(new Player("Bob"),new Player("Bill")/*,new Player("Mary"),new Player("Chris"),new Player("Anne")*/);
+		//game.startList(new Player("Bob"),new Player("Bill")/*,new Player("Mary"),new Player("Chris"),new Player("Anne")*/);
+		System.out.println("How many players?");
+		Player[] players = new Player[TextIO.getlnInt()];
+		System.out.println("Please state their names one by one.");
+		for (int i=0;i<players.length;i++) players[i] = new Player(TextIO.getln());
+		game.start(players);
+
+
 
 		// Gameplay
 

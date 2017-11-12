@@ -7,7 +7,7 @@ public class YahtzeeGame {
 	/***** Variables *****/
 
 	public static final int // Settings
-		REROLLS = 3,
+		REROLLS = 2,
 		DICENUM = 5;
 	private Player[] players;
 	private Die[] dice;
@@ -46,7 +46,7 @@ public class YahtzeeGame {
 			for (Die d : this.dice) d.hold = false;
 
 			System.out.println("Rolling dice...");
-			rer: while (rerolls > 0) {
+			rer: while (rerolls >= 0) {
 				System.out.println("Your dice were: ");
 				
 				// Rolling Dice
@@ -54,7 +54,7 @@ public class YahtzeeGame {
 					if (!this.dice[i].hold) this.dice[i].roll();
 					System.out.println((i+1)+": "+this.dice[i]);
 					if (this.dice[i].hold) System.out.println("You held this dice's value of "+this.dice[i]);
-					//System.out.println(DieFace.getAscii(this.dice[i]));
+					System.out.println(DieFace.getAscii(this.dice[i]));
 					this.dice[i].hold = false;
 				}
 
@@ -70,6 +70,7 @@ public class YahtzeeGame {
 					for (ScoreField s : ScoreField.values()) {
 						if (in.toUpperCase().equals(s.name()) && p.getScore(s.name()) == null) {
 							System.out.println("You chose to accept the score "+s.name()+", getting you "+s.operate(dice)+" points.");
+							rerolls = 1000;
 							break rer;
 						}
 					}
