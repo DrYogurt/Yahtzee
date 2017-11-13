@@ -92,14 +92,14 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
     	        	return Integer.compare(a.getValue(), b.getValue());
     	    	}
     		});
-			for (int i = 0; i < dice.length -1; i++) {
+			outer: for (int i = 1; i < dice.length -1; i++) {
 				if(!(dice[0].getValue() == (dice[i].getValue() - i))) {
-					return 0;
-				}
-			}
-			for (int i = 1; i < dice.length; i++) {
-				if(!(dice[0].getValue() == (dice[i].getValue() - (i - 1)))) {
-					return 0;
+					for (int j = 2; j < dice.length; j++) {
+						if(!(dice[0].getValue() == (dice[j].getValue() - (j - 1)))) {
+							return 0;
+						}
+					}
+					break outer;
 				}
 			}
 			return 30;
@@ -110,7 +110,7 @@ enum ScoreField { // Note: You can get the string by doing Field.____.name();
     	        	return Integer.compare(a.getValue(), b.getValue());
     	    	}
     		});
-			for (int i = 0; i < dice.length; i++) {
+			for (int i = 1; i < dice.length; i++) {
 				if(dice[0].getValue() != (dice[i].getValue() - (i - 1))) {
 					return 0;
 				}

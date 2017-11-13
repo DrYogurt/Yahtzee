@@ -70,6 +70,7 @@ public class YahtzeeGame {
 					for (ScoreField s : ScoreField.values()) {
 						if (in.toUpperCase().equals(s.name()) && p.getScore(s.name()) == null) {
 							System.out.println("You chose to accept the score "+s.name()+", getting you "+s.operate(dice)+" points.");
+							p.setScore(s.name(), s.operate(dice));
 							rerolls = 1000;
 							break rer;
 						}
@@ -97,6 +98,7 @@ public class YahtzeeGame {
 					for (ScoreField s : ScoreField.values()) {
 						if (in.toUpperCase().equals(s.name()) && p.getScore(s.name()) == null) {
 							System.out.println("You chose to accept the score "+s.name()+", getting you "+s.operate(dice)+" points.");
+							p.setScore(s.name(), s.operate(dice));
 							break boi;
 						}
 					}
@@ -126,7 +128,10 @@ public class YahtzeeGame {
 		for(ScoreField f : ScoreField.values()) {
 			out += "\n" + String.format("%-15s", f.toString());
 			for(Player p : this.players) {
-				out += String.format("%-10s", p.getScoreCard().get(f.name()));
+				if(p.getScoreCard().get(f.toString()) != null)
+					out += String.format("%-10s", p.getScoreCard().get(f.toString()));
+				else 
+					out += String.format("%-10s", "N/A");
 			}
 		}
 
